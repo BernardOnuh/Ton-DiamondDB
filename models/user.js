@@ -34,5 +34,11 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+// Middleware to sync gameBalance and score
+userSchema.pre('save', function(next) {
+  this.score = this.gameBalance + this.referralBalance;
+  next();
+});
+
 // Model
 module.exports = mongoose.model('User', userSchema);
