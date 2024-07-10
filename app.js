@@ -1,5 +1,5 @@
 const express = require('express');
-const depositRoutes = require ('./routes/depositRoutes')
+const gameRoutes = require ('./routes/gameRoutes')
 const cors = require('cors');
 const connectDB = require('./db/connect')
 const mongoose = require('mongoose');
@@ -8,7 +8,7 @@ require('dotenv').config()
 
 app.use(cors());
 app.use(express.json());
-app.get('/hello', (req, res) => {res.send('Task Manager')})
+app.get('/hello', (req, res) => {res.send('Ton Diamond')})
 const port = process.env.PORT || 3001
 const start = async () => {
     try {
@@ -18,7 +18,7 @@ const start = async () => {
         console.log(error)
     }
 }
-app.use('/api/gummybear',depositRoutes)
+app.use('/api/ton-diamond',gameRoutes)
 console.log('Running')
 
 start()

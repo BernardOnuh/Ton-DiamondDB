@@ -4,33 +4,25 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   userId: {
     type: String,
-    unique: true,
     required: true,
+    unique: true,
   },
-  inviterId: {
+  inviterUsername: {
     type: String,
     required: false,
   },
   username: {
     type: String,
-    required: false,
-  },
-  balance: {
-    type: Number,
-    default: 0,
-  },
-  realGameBalance: {
-    type: Number,
-    default: 0,
-  },
-  dashboardId: {
-    type: String,
-    required: true,
     unique: true,
+    required: true,
   },
-  walletAddress: {
-    type: String,
-    required: false,
+  referralBalance: {
+    type: Number,
+    default: 0,
+  },
+  gameBalance: {
+    type: Number,
+    default: 0,
   },
   invitedUsers: [{
     type: mongoose.Schema.Types.ObjectId,
